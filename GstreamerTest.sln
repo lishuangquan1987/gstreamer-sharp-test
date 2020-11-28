@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30611.23
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GstreamerTest", "GstreamerTest\GstreamerTest.csproj", "{FD0ABA8B-9AD2-4C21-9573-C39F424A5B65}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GstreamerTest-Unnormal", "GstreamerTest-Unnormal\GstreamerTest-Unnormal.csproj", "{77E572E8-71F4-49D4-90B2-099C6DBA6BE1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FD0ABA8B-9AD2-4C21-9573-C39F424A5B65}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FD0ABA8B-9AD2-4C21-9573-C39F424A5B65}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FD0ABA8B-9AD2-4C21-9573-C39F424A5B65}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FD0ABA8B-9AD2-4C21-9573-C39F424A5B65}.Release|Any CPU.Build.0 = Release|Any CPU
+		{77E572E8-71F4-49D4-90B2-099C6DBA6BE1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{77E572E8-71F4-49D4-90B2-099C6DBA6BE1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{77E572E8-71F4-49D4-90B2-099C6DBA6BE1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{77E572E8-71F4-49D4-90B2-099C6DBA6BE1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {51026D7C-D2E1-4AFA-BF62-15676E4E0D54}
+	EndGlobalSection
+EndGlobal
