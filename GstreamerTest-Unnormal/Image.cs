@@ -1,10 +1,11 @@
 ﻿using Gst;
+using GstreamerTest_Unnormal;
 using System;
 using System.Buffers;
-using VL.Lib.Basics.Imaging;
 
 namespace GstreamerTest.Unnormal
 {
+   
     public class Image : IImage, IDisposable
     {
         unsafe class Data : MemoryManager<byte>, IImageData
@@ -66,7 +67,7 @@ namespace GstreamerTest.Unnormal
             }
         }
 
-        public ImageInfo Info => !FIsDisposed ? FInfo : ImageExtensions.Default.Info;
+        public ImageInfo Info => !FIsDisposed ? FInfo : Extensions.Default.Info;
         public bool IsDisposed => FSample == null;
         public bool IsVolatile => true;
 
@@ -79,6 +80,6 @@ namespace GstreamerTest.Unnormal
             }
         }
 
-        public IImageData GetData() => !FIsDisposed ? new Data(FBuffer, Info.ScanSize) : ImageExtensions.Default.GetData();
+        public IImageData GetData() => !FIsDisposed ? new Data(FBuffer, Info.ScanSize) : Extensions.Default.GetData();
     }
 }

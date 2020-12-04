@@ -1,11 +1,13 @@
 ﻿using Gst.Video;
+using GstreamerTest_Unnormal;
 using System;
-using VL.Lib.Basics.Imaging;
+
 
 namespace GstreamerTest.Unnormal
 {
     public static class Converters
     {
+
         public static VideoFormat ToVideoFormat(this PixelFormat format)
         {
             switch (format)
@@ -25,7 +27,7 @@ namespace GstreamerTest.Unnormal
                 case PixelFormat.B8G8R8A8:
                     return VideoFormat.Bgra;
                 default:
-                    throw new UnsupportedPixelFormatException(format);
+                    throw new NotSupportedException(format.ToString());
             }
         }
 

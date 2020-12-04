@@ -1,4 +1,5 @@
 ﻿using Gst;
+using GstreamerTest.Unnormal;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -8,7 +9,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using VL.Lib.Basics.Imaging;
 
 namespace GstreamerTest_Unnormal
 {
@@ -41,15 +41,23 @@ namespace GstreamerTest_Unnormal
                     var sample = videosink.TryPullSample(500);
                     if(sample!=null)
                     {
-                        if (sample == null) continue ;
-                        GstreamerTest.Unnormal.Image image = new GstreamerTest.Unnormal.Image(sample);
+                        //if (sample == null) continue;
+                        //GstreamerTest.Unnormal.Image image = new GstreamerTest.Unnormal.Image(sample);
+                        //this.Invoke(new Action(() =>
+                        //{
+                        //    this.pictureBox1.Image?.Dispose();
+                        //    this.pictureBox1.Image = image.FromImage(true);
+                        //}));
+                        //image.Dispose();
+                        //sample.Dispose();
+
                         this.Invoke(new Action(() =>
                         {
                             this.pictureBox1.Image?.Dispose();
-                            this.pictureBox1.Image = image.FromImage(true);
+                            this.pictureBox1.Image = ConvertSampleToImage(sample);
                         }));
-                        image.Dispose();
                         sample.Dispose();
+
                     }
                     System.Threading.Thread.Sleep(10);
                 }
@@ -68,7 +76,8 @@ namespace GstreamerTest_Unnormal
             videosink.Qos = false;
             videosink.Drop = false;
             
-            videosink.Caps = Caps.FromString($"video/x-raw, format=RGBA");
+            videosink.Caps = Caps.FromString($"video/x-raw, format=BGRA");
+            //videosink.Caps = Caps.FromString($"video/x-raw, format=ARGB");
             videosink.MaxBuffers = 1;
             videosink.EmitSignals = true;
 
@@ -93,6 +102,73 @@ namespace GstreamerTest_Unnormal
         private void btnStop_Click(object sender, EventArgs e)
         {
             playbin.SetState(State.Ready);
+        }
+
+        private  Bitmap ConvertSampleToImage(Sample sample, Gst.Video.VideoFormat videoFormat= Gst.Video.VideoFormat.Gbra)
+        {
+            using (var caps = sample.Caps)
+            using (var structure = caps.GetStructure(0))
+            {
+                int width, height;
+                structure.GetInt("width", out width);
+                structure.GetInt("height", out height);
+                var formatStr = structure.GetString("format");
+                var format = ConvertVideoFormatStrToPixelFormat(formatStr);
+
+                var img = new System.Drawing.Bitmap(width,height,format);
+                var imageData = img.LockBits(new System.Drawing.Rectangle(0, 0, img.Width, img.Height), System.Drawing.Imaging.ImageLockMode.ReadWrite, img.PixelFormat);
+
+                var pointer = imageData.Scan0;
+                var length = imageData.Stride * imageData.Height;
+
+                sample.Buffer.Map(out MapInfo mapInfo, MapFlags.Read);
+                var data = mapInfo.Data;
+
+                System.Runtime.InteropServices.Marshal.Copy(data,0,pointer,length);
+                img.UnlockBits(imageData);
+                
+                data = null;
+                sample.Buffer.Unmap(mapInfo);//这一句一定要加，否则内存飙升
+                
+                return img;
+            }
+            
+        }
+
+        private System.Drawing.Imaging.PixelFormat ConvertVideoFormatStrToPixelFormat(string format)
+        {
+            Gst.Video.VideoFormat videoFormat;
+            if (!Enum.TryParse(format, true, out videoFormat))
+                return System.Drawing.Imaging.PixelFormat.Undefined;
+
+            if (videoFormat == Gst.Video.VideoFormat.Encoded ||
+                videoFormat == Gst.Video.VideoFormat.I420 ||
+                videoFormat == Gst.Video.VideoFormat.Yv12 ||
+                videoFormat == Gst.Video.VideoFormat.Yuy2 ||
+                videoFormat == Gst.Video.VideoFormat.Uyvy ||
+                videoFormat == Gst.Video.VideoFormat.Ayuv ||
+                videoFormat == Gst.Video.VideoFormat.Rgbx ||
+                videoFormat == Gst.Video.VideoFormat.Bgrx)
+            {
+                return System.Drawing.Imaging.PixelFormat.Format32bppRgb;
+            }
+            else if (videoFormat == Gst.Video.VideoFormat.Xrgb ||
+                videoFormat == Gst.Video.VideoFormat.Xbgr ||
+                videoFormat == Gst.Video.VideoFormat.Rgba ||
+                videoFormat == Gst.Video.VideoFormat.Bgra)
+            {
+                return System.Drawing.Imaging.PixelFormat.Format32bppArgb;
+            }
+            else if (videoFormat == Gst.Video.VideoFormat.Argb ||
+                videoFormat == Gst.Video.VideoFormat.Abgr ||
+                videoFormat == Gst.Video.VideoFormat.Rgb)
+            {
+                return System.Drawing.Imaging.PixelFormat.Format24bppRgb;
+            }
+            else
+            {
+                return System.Drawing.Imaging.PixelFormat.Undefined;
+            }
         }
     }
 }
