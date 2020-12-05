@@ -1,0 +1,13 @@
+G:\Project2020\GstreamerTest\GStreamerPlayer\bin\Debug\GStreamerPlayer.dll
+G:\Project2020\GstreamerTest\GStreamerPlayer\bin\Debug\GStreamerPlayer.pdb
+G:\Project2020\GstreamerTest\GStreamerPlayer\bin\Debug\gio-sharp.dll
+G:\Project2020\GstreamerTest\GStreamerPlayer\bin\Debug\glib-sharp.dll
+G:\Project2020\GstreamerTest\GStreamerPlayer\bin\Debug\gstreamer-sharp.dll
+G:\Project2020\GstreamerTest\GStreamerPlayer\obj\Debug\GStreamerPlayer.GStreamerPlayerControl.resources
+G:\Project2020\GstreamerTest\GStreamerPlayer\obj\Debug\GStreamerPlayer.csproj.GenerateResource.cache
+G:\Project2020\GstreamerTest\GStreamerPlayer\obj\Debug\GStreamerPlayer.csproj.CoreCompileInputs.cache
+G:\Project2020\GstreamerTest\GStreamerPlayer\obj\Debug\GStreamerPlayer.csproj.CopyComplete
+G:\Project2020\GstreamerTest\GStreamerPlayer\obj\Debug\GStreamerPlayer.dll
+G:\Project2020\GstreamerTest\GStreamerPlayer\obj\Debug\GStreamerPlayer.pdb
+G:\Project2020\GstreamerTest\GStreamerPlayer\obj\Debug\GStreamerPlayer.Properties.Resources.resources
+G:\Project2020\GstreamerTest\GStreamerPlayer\obj\Debug\GStreamerPlayer.csprojAssemblyReference.cache

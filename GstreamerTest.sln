@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GstreamerTest-Unnormal", "G
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GStreamerPlayer", "GStreamerPlayer\GStreamerPlayer.csproj", "{3CFAE1FF-A45F-4DAB-B99D-6D4894566C0E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GStreamerPlayer.Test", "GStreamerPlayer.Test\GStreamerPlayer.Test.csproj", "{6382685F-617E-4BE4-AD14-E557D9FBC707}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{3CFAE1FF-A45F-4DAB-B99D-6D4894566C0E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3CFAE1FF-A45F-4DAB-B99D-6D4894566C0E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3CFAE1FF-A45F-4DAB-B99D-6D4894566C0E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6382685F-617E-4BE4-AD14-E557D9FBC707}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6382685F-617E-4BE4-AD14-E557D9FBC707}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6382685F-617E-4BE4-AD14-E557D9FBC707}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6382685F-617E-4BE4-AD14-E557D9FBC707}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
