@@ -69,16 +69,18 @@ namespace GStreamerPlayer
 
                     if (!this.pictureBox.IsHandleCreated) continue;
 
-                    var sample = videosink.TryPullSample(500);
+                    var sample = videosink.TryPullSample(10);
                     if (sample == null) continue;
 
                     System.Diagnostics.Stopwatch stopwatch = System.Diagnostics.Stopwatch.StartNew();
+
+                    
 
                     var image1 = ConvertSampleToImage(sample);
                     var time1 = stopwatch.ElapsedMilliseconds;
 
                     stopwatch.Restart();
-                    var image = new Bitmap(image1,this.pictureBox.Width,this.pictureBox.Height);
+                    var image = image1.ToSize(this.pictureBox.Width,this.pictureBox.Height);
                     var time2 = stopwatch.ElapsedMilliseconds;
 
                     stopwatch.Restart();
@@ -273,6 +275,8 @@ namespace GStreamerPlayer
                 return System.Drawing.Imaging.PixelFormat.Undefined;
             }
         }
+
+        
     }
 
    

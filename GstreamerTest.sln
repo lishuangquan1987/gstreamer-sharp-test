@@ -11,6 +11,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GStreamerPlayer", "GStreame
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GStreamerPlayer.Test", "GStreamerPlayer.Test\GStreamerPlayer.Test.csproj", "{6382685F-617E-4BE4-AD14-E557D9FBC707}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GStrreamerEmbeddedPlayer", "GStrreamerEmbeddedPlayer\GStrreamerEmbeddedPlayer.csproj", "{8F1CBA91-CFDB-4395-B4EF-9BCE0F5D8087}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GStrreamerEmbeddedPlayer.Test", "GStrreamerEmbeddedPlayer.Test\GStrreamerEmbeddedPlayer.Test.csproj", "{F2C2E7FB-9977-4C59-98A7-E34B5B9EFB07}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +37,14 @@ Global
 		{6382685F-617E-4BE4-AD14-E557D9FBC707}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6382685F-617E-4BE4-AD14-E557D9FBC707}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6382685F-617E-4BE4-AD14-E557D9FBC707}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8F1CBA91-CFDB-4395-B4EF-9BCE0F5D8087}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8F1CBA91-CFDB-4395-B4EF-9BCE0F5D8087}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8F1CBA91-CFDB-4395-B4EF-9BCE0F5D8087}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8F1CBA91-CFDB-4395-B4EF-9BCE0F5D8087}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F2C2E7FB-9977-4C59-98A7-E34B5B9EFB07}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F2C2E7FB-9977-4C59-98A7-E34B5B9EFB07}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F2C2E7FB-9977-4C59-98A7-E34B5B9EFB07}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F2C2E7FB-9977-4C59-98A7-E34B5B9EFB07}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -11,3 +11,13 @@ G:\Project2020\GstreamerTest\GStreamerPlayer\obj\Debug\GStreamerPlayer.dll
 G:\Project2020\GstreamerTest\GStreamerPlayer\obj\Debug\GStreamerPlayer.pdb
 G:\Project2020\GstreamerTest\GStreamerPlayer\obj\Debug\GStreamerPlayer.Properties.Resources.resources
 G:\Project2020\GstreamerTest\GStreamerPlayer\obj\Debug\GStreamerPlayer.csprojAssemblyReference.cache
+G:\Project2020\GstreamerTest\GStreamerPlayer\bin\Debug\SixLabors.ImageSharp.dll
+G:\Project2020\GstreamerTest\GStreamerPlayer\bin\Debug\System.Buffers.dll
+G:\Project2020\GstreamerTest\GStreamerPlayer\bin\Debug\System.Memory.dll
+G:\Project2020\GstreamerTest\GStreamerPlayer\bin\Debug\System.Numerics.Vectors.dll
+G:\Project2020\GstreamerTest\GStreamerPlayer\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+G:\Project2020\GstreamerTest\GStreamerPlayer\bin\Debug\SixLabors.ImageSharp.xml
+G:\Project2020\GstreamerTest\GStreamerPlayer\bin\Debug\System.Buffers.xml
+G:\Project2020\GstreamerTest\GStreamerPlayer\bin\Debug\System.Memory.xml
+G:\Project2020\GstreamerTest\GStreamerPlayer\bin\Debug\System.Numerics.Vectors.xml
+G:\Project2020\GstreamerTest\GStreamerPlayer\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml

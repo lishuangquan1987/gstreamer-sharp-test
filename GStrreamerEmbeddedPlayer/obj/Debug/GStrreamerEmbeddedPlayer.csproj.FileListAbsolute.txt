@@ -1,0 +1,12 @@
+G:\Project2020\GstreamerTest\GStrreamerEmbeddedPlayer\bin\Debug\GStrreamerEmbeddedPlayer.dll
+G:\Project2020\GstreamerTest\GStrreamerEmbeddedPlayer\bin\Debug\GStrreamerEmbeddedPlayer.pdb
+G:\Project2020\GstreamerTest\GStrreamerEmbeddedPlayer\bin\Debug\gio-sharp.dll
+G:\Project2020\GstreamerTest\GStrreamerEmbeddedPlayer\bin\Debug\glib-sharp.dll
+G:\Project2020\GstreamerTest\GStrreamerEmbeddedPlayer\bin\Debug\gstreamer-sharp.dll
+G:\Project2020\GstreamerTest\GStrreamerEmbeddedPlayer\obj\Debug\GStrreamerEmbeddedPlayer.csprojAssemblyReference.cache
+G:\Project2020\GstreamerTest\GStrreamerEmbeddedPlayer\obj\Debug\GStrreamerEmbeddedPlayer.PlayerControl.resources
+G:\Project2020\GstreamerTest\GStrreamerEmbeddedPlayer\obj\Debug\GStrreamerEmbeddedPlayer.csproj.GenerateResource.cache
+G:\Project2020\GstreamerTest\GStrreamerEmbeddedPlayer\obj\Debug\GStrreamerEmbeddedPlayer.csproj.CoreCompileInputs.cache
+G:\Project2020\GstreamerTest\GStrreamerEmbeddedPlayer\obj\Debug\GStrreamerEmbeddedPlayer.csproj.CopyComplete
+G:\Project2020\GstreamerTest\GStrreamerEmbeddedPlayer\obj\Debug\GStrreamerEmbeddedPlayer.dll
+G:\Project2020\GstreamerTest\GStrreamerEmbeddedPlayer\obj\Debug\GStrreamerEmbeddedPlayer.pdb
