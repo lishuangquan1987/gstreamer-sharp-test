@@ -51,7 +51,7 @@ namespace GStreamerPlayer.Test
             if (!this.IsHandleCreated) return;
             this.Invoke(new Action(() =>
             {
-                this.Text = $"播放状态:{state},进度:{currentTime.TotalSeconds}s/{totalTime.TotalSeconds}s";
+                this.Text = $"播放状态:{state},进度:{currentTime.TotalSeconds}s/{totalTime.TotalSeconds}s 总帧数：{player.TotalFrame} 丢帧数：{player.IgnoreFrame}";
             }));
         }
     }

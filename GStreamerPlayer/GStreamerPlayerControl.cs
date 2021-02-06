@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Gst;
 using System.Threading;
+using System.Collections.Concurrent;
 
 namespace GStreamerPlayer
 {
@@ -32,6 +33,15 @@ namespace GStreamerPlayer
         /// 播放状态变化触发的事件
         /// </summary>
         public event Action<State> StatusChanged;
+        /// <summary>
+        /// 播放总帧数（会随着播放变化）
+        /// </summary>
+        public long TotalFrame { get; set; }
+        /// <summary>
+        /// 因图片转换慢而丢弃的帧数（会随着播放变化）
+        /// </summary>
+        public long IgnoreFrame { get; set; }
+        private ConcurrentStack<Bitmap> cacheImageList = new ConcurrentStack<Bitmap>();
 
         private State state;
         GLib.MainLoop mainLoop;
@@ -48,10 +58,10 @@ namespace GStreamerPlayer
             this.Load += GStreamerPlayerControl_Load;
             Init();
 
-            this.SizeChanged += (sender, e) =>
-              {
-                  this.pictureBox.Height = this.Height - 100;
-              };
+            //this.SizeChanged += (sender, e) =>
+            //{
+            //    this.pictureBox.Height = this.Height - 100;
+            //};
         }
 
         private void GStreamerPlayerControl_Load(object sender, EventArgs e)
@@ -70,31 +80,20 @@ namespace GStreamerPlayer
                     if (!this.pictureBox.IsHandleCreated) continue;
 
                     var sample = videosink.TryPullSample(10);
-                    if (sample == null) continue;
-
-                    System.Diagnostics.Stopwatch stopwatch = System.Diagnostics.Stopwatch.StartNew();
-
-                    
-
-                    var image1 = ConvertSampleToImage(sample);
-                    var time1 = stopwatch.ElapsedMilliseconds;
-
-                    stopwatch.Restart();
-                    var image = image1.ToSize(this.pictureBox.Width,this.pictureBox.Height);
-                    var time2 = stopwatch.ElapsedMilliseconds;
-
-                    stopwatch.Restart();
-
-                    this.Invoke(new Action(() =>
+                    if (sample == null)
                     {
-                        this.pictureBox.Image?.Dispose();
+                        continue;
+                    }
 
-                        this.pictureBox.Image = image;
+                    TotalFrame++;
+                    var image = ConvertSampleToImage(sample);
+                    if (this.cacheImageList.Count > 0)
+                    {
+                        IgnoreFrame += this.cacheImageList.Count;
+                        this.cacheImageList.Clear();
+                    }
+                    this.cacheImageList.Push(image);
 
-                        this.lbTest.Text = $"{time1}ms-{time2}ms-{stopwatch.ElapsedMilliseconds}ms";
-
-                    }));
-                    
                     sample.Dispose();
 
                 }
@@ -104,7 +103,7 @@ namespace GStreamerPlayer
             {
                 while (!IsDisposed)
                 {
-                    Thread.Sleep(300);
+                    Thread.Sleep(500);
                     if (playbin == null)
                         continue;
                     if (videosink == null)
@@ -131,6 +130,30 @@ namespace GStreamerPlayer
                         StatusChanged?.Invoke(state);
                     }
 
+                }
+            });
+            //处理图片线程
+            ThreadPool.QueueUserWorkItem(x =>
+            {
+                while (!IsDisposed)
+                {
+                    Thread.Sleep(10);
+                    if (cacheImageList.TryPop(out Bitmap bitmap))
+                    {
+                        try
+                        {
+                            var imageToShow = bitmap.ToSize(this.pictureBox.Width, this.pictureBox.Height);
+                            this.Invoke(new Action(() =>
+                            {
+                                this.pictureBox.Image?.Dispose();
+
+                                this.pictureBox.Image = imageToShow;
+
+                            }));
+                        }
+                        catch (Exception ee)
+                        { }
+                    }
                 }
             });
         }
@@ -198,6 +221,8 @@ namespace GStreamerPlayer
         public void Play(string url)
         {
             Url = url;
+            TotalFrame = 0;
+            IgnoreFrame = 0;
             Play();
         }
         public void Pause()
@@ -276,8 +301,8 @@ namespace GStreamerPlayer
             }
         }
 
-        
+
     }
 
-   
+
 }

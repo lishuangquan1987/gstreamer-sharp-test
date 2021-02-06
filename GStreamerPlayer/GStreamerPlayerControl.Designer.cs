@@ -29,46 +29,33 @@
         private void InitializeComponent()
         {
             this.pictureBox = new System.Windows.Forms.PictureBox();
-            this.lbTest = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox
             // 
             this.pictureBox.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pictureBox.Location = new System.Drawing.Point(0, 49);
+            this.pictureBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox.Location = new System.Drawing.Point(0, 0);
             this.pictureBox.Name = "pictureBox";
-            this.pictureBox.Size = new System.Drawing.Size(621, 306);
+            this.pictureBox.Size = new System.Drawing.Size(621, 355);
             this.pictureBox.TabIndex = 0;
             this.pictureBox.TabStop = false;
-            // 
-            // lbTest
-            // 
-            this.lbTest.AutoSize = true;
-            this.lbTest.Location = new System.Drawing.Point(37, 31);
-            this.lbTest.Name = "lbTest";
-            this.lbTest.Size = new System.Drawing.Size(41, 12);
-            this.lbTest.TabIndex = 1;
-            this.lbTest.Text = "label1";
             // 
             // GStreamerPlayerControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.lbTest);
             this.Controls.Add(this.pictureBox);
             this.Name = "GStreamerPlayerControl";
             this.Size = new System.Drawing.Size(621, 355);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
         private System.Windows.Forms.PictureBox pictureBox;
-        private System.Windows.Forms.Label lbTest;
     }
 }

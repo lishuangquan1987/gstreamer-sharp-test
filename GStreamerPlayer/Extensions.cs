@@ -15,12 +15,10 @@ namespace GStreamerPlayer
         }
         public static System.Drawing.Bitmap ToSize(this System.Drawing.Bitmap bitmap, int width, int height)
         {
-            
-
             Bitmap result = new Bitmap(width, height);
             Graphics g = Graphics.FromImage(result);
 
-            g.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.Low;
+            g.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
             g.DrawImage(bitmap,0,0,width,height);
             g.Dispose();
             return result;
